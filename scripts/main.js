@@ -25,6 +25,24 @@ myImage.onclick = function() {
     }
 }
 
+var myButton = document.querySelector('button');
+myButton.onclick = function() {
+  setUserName();
+}
+
+function setUserName() {
+	var myName = prompt('Please enter your name.');
+	localStorage.setItem('name', myName);
+	myHeading.textContent = 'Mozilla is cool, ' + myName;
+}
+
+//check to see if we already know user's name, if not, request it and save it
+if(!localStorage.getItem('name')) {
+  setUserName();
+} else {
+  var storedName = localStorage.getItem('name');
+  myHeading.textContent = 'You smell, ' + storedName;
+}
 
 /*  SAMPLE ALERT
 document.querySelector('html').onclick = function() {
